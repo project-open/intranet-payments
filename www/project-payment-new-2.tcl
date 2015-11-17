@@ -118,7 +118,7 @@ db_foreach people_to_notify \
          from users, user_group_map
          where users.user_id = user_group_map.user_id 
          and group_id = (select group_id from user_groups 
-                         where short_name = '[ad_parameter BillingGroupShortName "" ""]')" {
+                         where short_name = '[im_parameter BillingGroupShortName "" ""]')" {
     ns_log Notice "Sending email to $email"
     ns_sendmail $email "$editing_email" "Change to $project_name payment plan." "$message"
 }

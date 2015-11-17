@@ -63,7 +63,7 @@ set company_id [db_string get_company_from_invoice "select customer_id from im_c
 set provider_id [db_string get_provider_from_invoice "select provider_id from im_costs where cost_id=:cost_id" -default 0]
 
 # Default Currency
-set default_currency [ad_parameter -package_id [im_package_cost_id] "DefaultCurrency" "" "EUR"]
+set default_currency [im_parameter -package_id [im_package_cost_id] "DefaultCurrency" "" "EUR"]
 
 
 # ---------------------------------------------------------------

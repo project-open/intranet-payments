@@ -22,7 +22,7 @@ if { [empty_string_p $payment_id] && [empty_string_p $project_id] } {
 
 # ToDo: No parameter FeeTypes
 set user_id [ad_maybe_redirect_for_registration]
-set fee_type_list [ad_parameter FeeTypes intranet]
+set fee_type_list [im_parameter FeeTypes intranet]
 
 if {[empty_string_p $payment_id]} {
     set project_name [db_string get_project_name "select p.project_name from im_projects where project_id=:project_id"]

@@ -61,7 +61,7 @@ if {"" == $payment_id} {
     # Set the provider to the "Internal" company - this organization
     set provider_id [im_company_internal]
     set amount ""
-    set currency [ad_parameter -package_id [im_package_cost_id] "DefaultCurrency" "" "EUR"]
+    set currency [im_parameter -package_id [im_package_cost_id] "DefaultCurrency" "" "EUR"]
     set payment_type_id 0
     set received_date [db_string today "select to_char(sysdate, 'YYYY-MM-DD') from dual"]
     set note ""
