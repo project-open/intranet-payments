@@ -218,7 +218,7 @@ set filter_html "
 <tr>
   <td>
 	<form method=get action='/intranet-cost/index'>
-	[export_form_vars start_idx order_by how_many view_name include_subpayments_p letter]
+	[export_vars -form {start_idx order_by how_many view_name include_subpayments_p letter}]
 	<table border=0 cellpadding=0 cellspacing=0>
 	  <tr> 
 	    <td colspan='2' class=rowtitle align=center>
@@ -383,7 +383,7 @@ set page_body "
 [im_costs_navbar $letter "/intranet-payments/index" $next_page_url $previous_page_url [list status_id type_id start_idx order_by how_many view_name letter] "payments_list"]
 
 <form action=payment-action method=POST>
-[export_form_vars company_id payment_id return_url]
+[export_vars -form {company_id payment_id return_url}]
   <table width=100% cellpadding=2 cellspacing=2 border=0>
     $table_header_html
     $table_body_html

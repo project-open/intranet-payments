@@ -5,7 +5,7 @@
 <%= [im_costs_navbar "none" "/intranet-costs/index" "" "" [list] "payments_list"] %>
 
 <form action=new method=POST>
-<%= [export_form_vars payment_id cost_id return_url] %>
+<%= [export_vars -form {payment_id cost_id return_url}] %>
 
 <table border=0>
 	  <tr> 
