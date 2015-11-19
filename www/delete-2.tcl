@@ -29,4 +29,4 @@ if {![im_permission $current_user_id add_payments]} {
 db_dml delete_payment \
 	"delete from im_project_payments p where p.payment_id = :payment_id"
 
-ad_returnredirect index?[export_url_vars group_id]
+ad_returnredirect index?[export_vars -url {group_id}]

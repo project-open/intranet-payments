@@ -83,7 +83,7 @@ if {[db_resultrows] == 0} {
 }
 
 
-ad_returnredirect "index.tcl?[export_url_vars group_id]"
+ad_returnredirect "index.tcl?[export_vars -url {group_id}]"
 
 ns_conn close
 
@@ -107,7 +107,7 @@ Work starting: $start_block
 Type:  $fee_type
 Note: $note
 
-To view online: [im_url]/payments/index?[export_url_vars group_id]
+To view online: [im_url]/payments/index?[export_vars -url {group_id}]
 
 "
 
