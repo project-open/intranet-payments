@@ -21,7 +21,7 @@ ad_page_contract {
     return_url
 }
 
-set user_id [ad_maybe_redirect_for_registration]
+set user_id [auth::require_login]
 if {![im_permission $user_id add_payments]} {
     ad_return_complaint 1 "<li>[_ intranet-payments.lt_You_have_insufficient]"
     return
@@ -43,7 +43,7 @@ if {"" != $del} {
 
 if {"" != $add} {
     ns_log Notice "payment-action: add payment"
-    ad_returnredirect "/intranet-payments/new?[export_vars -url {cost_id return_url}]"
+    ad_returnredirect [export_vars -base /intranet-payments/new {cost_id return_url}]
 }
 
 ad_return_complaint 1 "<li>[_ intranet-payments.No_command_specified]"

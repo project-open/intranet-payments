@@ -29,8 +29,8 @@ ad_page_contract {
 
 
 
-set user_id [ad_verify_and_get_user_id]
-ad_maybe_redirect_for_registration
+set user_id [ad_conn user_id]
+auth::require_login
 
 set required_vars [list \
 	[list start_block "Missing starting date"] \
@@ -40,7 +40,7 @@ set required_vars [list \
 regsub "," $fee "" fee
 
 set errors [im_verify_form_variables $required_vars]
-if { ![empty_string_p $errors] } {
+if { $errors ne "" } {
     ad_return_complaint 1 $errors
     return
 }
@@ -83,7 +83,7 @@ if {[db_resultrows] == 0} {
 }
 
 
-ad_returnredirect "index.tcl?[export_vars -url {group_id}]"
+ad_returnredirect [export_vars -base index.tcl {group_id}]
 
 ns_conn close
 
@@ -107,7 +107,7 @@ Work starting: $start_block
 Type:  $fee_type
 Note: $note
 
-To view online: [im_url]/payments/index?[export_vars -url {group_id}]
+To view online: [im_url]/payments/[export_vars -base index {group_id}]
 
 "
 

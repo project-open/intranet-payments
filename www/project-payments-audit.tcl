@@ -20,7 +20,7 @@ set project_name [db_string get_project_name \
          where group_id = :group_id"]
 
 set page_title "<#_ Payments audit for %project_name%#>"
-set context_bar [im_context_bar [list "[im_url_stub]/projects/" "<#_ Projects#>"] [list "[im_url_stub]/projects/view?[export_vars -url {group_id}]" $project_name] [list index?[export_vars -url {group_id}] "<#_ Payments#>"] "<#_ Audit trail#>"]
+set context_bar [im_context_bar [list "[im_url_stub]/projects/" "<#_ Projects#>"] [list "[im_url_stub]/projects/[export_vars -base view {group_id}]" $project_name] [[export_vars -base index -url {group_id}] "<#_ Payments#>"] "<#_ Audit trail#>"]
 
 set page_content [ad_audit_trail $group_id im_project_payments_audit im_project_payments group_id]
 

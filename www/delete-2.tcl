@@ -20,7 +20,7 @@ ad_page_contract {
 }
 
 
-set current_user_id [ad_maybe_redirect_for_registration]
+set current_user_id [auth::require_login]
 if {![im_permission $current_user_id add_payments]} {
     ad_return_complaint 1 "<li>[_ intranet-invoices.lt_You_have_insufficient]"
     return
@@ -29,4 +29,4 @@ if {![im_permission $current_user_id add_payments]} {
 db_dml delete_payment \
 	"delete from im_project_payments p where p.payment_id = :payment_id"
 
-ad_returnredirect index?[export_vars -url {group_id}]
+ad_returnredirect [export_vars -base index {group_id}]

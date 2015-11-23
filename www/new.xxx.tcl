@@ -15,22 +15,22 @@ ad_page_contract {
     { payment_id:integer "" }
 }
 
-if { [empty_string_p $payment_id] && [empty_string_p $project_id] } {
+if { $payment_id eq "" && $project_id eq "" } {
     ad_return_complaint 1 "Either project_id or payment_id must be specified"
     return
 }
 
 # ToDo: No parameter FeeTypes
-set user_id [ad_maybe_redirect_for_registration]
+set user_id [auth::require_login]
 set fee_type_list [im_parameter FeeTypes intranet]
 
-if {[empty_string_p $payment_id]} {
+if {$payment_id eq ""} {
     set project_name [db_string get_project_name "select p.project_name from im_projects where project_id=:project_id"]
     
     set add_delete_text 0
     set payment_id [db_nextval "im_project_payment_id_seq"]
     set page_title "Add payment for $project_name" 
-    set context_bar [im_context_bar [list [im_url_stub]/projects/ "Projects"] [list [im_url_stub]/projects/view?[export_vars -url {project_id}] "One project"] [list index?[export_vars -url {project_id}] Payments] "Add payment"]
+    set context_bar [im_context_bar [list [im_url_stub]/projects/ "Projects"] [list [im_url_stub]/projects/[export_vars -base view {project_id}] "One project"] [[export_vars -base index -url {project_id}] Payments] "Add payment"]
     set button_name "Add payment"
     
     # Let's default start_block to something close to today
@@ -61,7 +61,7 @@ where
  
     set add_delete_text 1
     set page_title "Edit payment for $project_name"
-    set context_bar [im_context_bar [list [im_url_stub]/projects/ "Projects"] [list [im_url_stub]/projects/view?[export_vars -url {project_id}] "One project"] [list index?[export_vars -url {project_id}] Payments] "Edit payment"]
+    set context_bar [im_context_bar [list [im_url_stub]/projects/ "Projects"] [list [im_url_stub]/projects/[export_vars -base view {project_id}] "One project"] [[export_vars -base index -url {project_id}] Payments] "Edit payment"]
     set button_name "Update"
 }
 
@@ -70,13 +70,13 @@ set block_select_options [db_html_select_options -select_option $start_block sta
 
 set fee_options [ad_generic_optionlist $fee_type_list $fee_type_list [value_if_exists fee_type]]
 
-set note_quoted [ad_quotehtml [value_if_exists note]]
+set note_quoted [ns_quotehtml [value_if_exists note]]
 
 set delete_link ""
 if {$add_delete_text} {
     set delete_link "
 <ul>
-  <li> <a href=delete?[export_vars -url {payment_id}]>Delete this payment</a>
+  <li> <a href=[export_vars -base delete {payment_id}]>Delete this payment</a>
 </ul>
 "
 }

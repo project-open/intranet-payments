@@ -1,5 +1,5 @@
 <master src="master">
-<property name="title">@page_title@</property>
+<property name="doc(title)">@page_title;literal@</property>
 <property name="main_navbar_label">finance</property>
 
 @navbar;noquote@
@@ -7,28 +7,28 @@
 <form action=new-2 method=POST>
 @export_form_vars;noquote@
 
-<table border=0>
+<table border="0">
 <tr> 
-  <td colspan=2 class=rowtitle>#intranet-payments.Payment_Details#</td>
+  <td colspan="2" class=rowtitle>#intranet-payments.Payment_Details#</td>
 </tr>
 <tr> 
   <td>#intranet-payments.Cost_Name#</td>
   <td>
-    <input type=hidden name=cost_id value=@cost_id@>
+    <input type="hidden" name="cost_id" value="@cost_id@">
     <A HREF=/intranet-invoices/view?invoice_id=@cost_id@>@cost_name@</A>
   </td>
 </tr>
 <tr> 
   <td>#intranet-payments.Amount#</td>
   <td> 
-     <input type=text name=amount value="@amount@" size=8>
+     <input type="text" name="amount" value="@amount@" size="8">
      <%= [im_currency_select currency $currency] %>
   </td>
 </tr>
 <tr> 
   <td>#intranet-payments.Received#</td>
   <td>
-     <input name=received_date value="@received_date@" size=10>
+     <input name="received_date" value="@received_date@" size="10">
   </td>
 </tr>
 <tr>
@@ -42,10 +42,10 @@
   </td>
 </tr>
  <tr> 
-  <td valign=top> </td>
+  <td valign="top"> </td>
   <td>
-    <input type=submit value="@button_name@" name=submit2>
-    <input type=checkbox name=mark_document_as_paid_p value=1 checked>
+    <input type="submit" value="@button_name@" name="submit2">
+    <input type="checkbox" name="mark_document_as_paid_p" value="1" checked>
     <%= [lang::message::lookup "" intranet-payments.Mark_invoice_as_paid "Mark %fin_document_type% as paid."] %>
   </td>
 </tr>

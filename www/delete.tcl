@@ -14,7 +14,7 @@ ad_page_contract {
     payment_id:naturalnum,notnull
 }
 
-set current_user_id [ad_maybe_redirect_for_registration]
+set current_user_id [auth::require_login]
 if {![im_permission $current_user_id add_payments]} {
     ad_return_complaint 1 "<li>[_ intranet-invoices.lt_You_have_insufficient]"
     return
@@ -30,7 +30,7 @@ db_0or1row get_payment_info \
             and p.payment_id = :payment_id"
  
 set page_title "[_ intranet-payments.lt_Confirm_payment_delet]"
-set context_bar [im_context_bar [list [im_url_stub]/projects/ "[_ intranet-payments.Projects]"] [list [im_url_stub]/projects/view?[export_vars -url {group_id}] "[_ intranet-payments.One_project]"] [list index?[export_vars -url {group_id}] [_ intranet-payments.Payments]] [list project-payment-new?[export_vars -url {group_id}] "[_ intranet-payments.Edit_payment]"] "[_ intranet-payments.Delete_payment]"]
+set context_bar [im_context_bar [list [im_url_stub]/projects/ "[_ intranet-payments.Projects]"] [list [im_url_stub]/projects/[export_vars -base view {group_id}] "[_ intranet-payments.One_project]"] [[export_vars -base index -url {group_id}] [_ intranet-payments.Payments]] [[export_vars -base project-payment-new -url {group_id}] "[_ intranet-payments.Edit_payment]"] "[_ intranet-payments.Delete_payment]"]
 set fee_str "\$[util_commify_number $fee]"
 set page_body "
 [_ intranet-payments.lt_Do_you_really_want_to]

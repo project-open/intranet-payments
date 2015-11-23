@@ -17,7 +17,7 @@ ad_page_contract {
 # ---------------------------------------------------------------
 
 # User id already verified by filters
-set user_id [ad_maybe_redirect_for_registration]
+set user_id [auth::require_login]
 set current_user_id $user_id
 set page_title "[_ intranet-payments.Payment]"
 set context_bar [im_context_bar $page_title]
