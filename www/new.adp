@@ -1,11 +1,11 @@
-<master src="master">
+<master>
 <property name="doc(title)">@page_title;literal@</property>
 <property name="main_navbar_label">finance</property>
 
 @navbar;noquote@
 
 <form action=new-2 method=POST>
-@export_form_vars;noquote@
+@export_vars;noquote@
 
 <table border="0">
 <tr> 
