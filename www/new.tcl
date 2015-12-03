@@ -113,4 +113,3 @@ set navbar [im_costs_navbar $letter "/intranet-payments/index" $next_page_url $p
 ns_log Notice "intranet-payments/new: return_url2=$return_url"
 
 set export_vars [export_vars -form {payment_id provider_id return_url}]
-
