@@ -38,7 +38,7 @@ if {![im_permission $user_id view_payments]} {
 
 # We are editing an already existing payment
 
-db_0or1row get_payment_info "
+if {![db_0or1row get_payment_info "
 select
         p.*,
 	ci.cost_name,
@@ -57,4 +57,7 @@ where
 	and ci.customer_id = c.company_id
 	and ci.provider_id = pro.company_id
 	and p.payment_id = :payment_id
-"
+"]} {
+    ad_return_complaint 1 "Error getting information about payment"
+}
+
