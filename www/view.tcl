@@ -58,6 +58,6 @@ where
 	and ci.provider_id = pro.company_id
 	and p.payment_id = :payment_id
 "]} {
-    ad_return_complaint 1 "Error getting information about payment"
+    ad_return_complaint 1 "Error getting information about payment, somebody probably deleted the customer company object of the payment"
 }
 
