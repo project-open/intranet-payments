@@ -70,6 +70,7 @@ set page_focus "im_header_form.keywords"
 set return_url [im_url_with_query]
 # Needed for im_view_columns, defined in intranet-views.tcl
 set amp "&"
+set letter [string toupper $letter]
 
 if {![im_permission $user_id view_payments]} {
     ad_return_complaint "[_ intranet-payments.lt_Insufficient_Privileg]" "
@@ -139,8 +140,8 @@ if { $status_id ne "" && $status_id > 0 } {
 if { $type_id ne "" && $type_id != 0 } {
     lappend criteria "p.payment_type_id=:type_id"
 }
-if { $letter ne "" && $letter ne "ALL"  && $letter ne "SCROLL"  } {
-    lappend criteria "im_first_letter_default_to_a(ug.group_name)=:letter"
+if {$letter ne "" && $letter ne "ALL"  && $letter ne "SCROLL"} {
+    lappend criteria "im_first_letter_default_to_a(acs_object__name(ci.customer_id)) = :letter"
 }
 
 set order_by_clause ""
@@ -184,26 +185,13 @@ $order_by_clause
 # 5a. Limit the SQL query to MAX rows and provide << and >>
 # ---------------------------------------------------------------
 
-# Limit the search results to N data sets only
-# to be able to manage large sites
+# Fraber 151210: No need for limit, disabled.
 #
-if {$letter ne "ALL" } {
-    # Set these limits to negative values to deactivate them
-    set total_in_limited -1
-    set how_many -1
-    set selection "$sql"
-} else {
-    set limited_query [im_select_row_range $sql $start_idx $end_idx]
-    # We can't get around counting in advance if we want to be able to 
-    # sort inside the table on the page for only those users in the 
-    # query results
-    set total_in_limited [db_string payments_total_in_limited "
-	select count(*) 
-        from im_payments p, user_groups ug 
-        where p.group_id=ug.group_id $where_clause"]
+# Set these limits to negative values to deactivate them
+set total_in_limited -1
+set how_many -1
+set selection "$sql"
 
-    set selection "select z.* from ($limited_query) z $order_by_clause"
-}	
 
 # ---------------------------------------------------------------
 # 6. Format the Filter
