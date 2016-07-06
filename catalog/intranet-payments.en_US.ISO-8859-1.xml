@@ -22,7 +22,7 @@
   <msg key="lt_No_costinvoice_item_s">No cost/invoice item specified</msg>
   <msg key="lt_The_intranet_start_bl">The intranet start blocks are either undefined or we do not have a start block for this week or later into the future.</msg>
   <msg key="lt_There_are_currently_n">There are currently no payments matching the selected criteria</msg>
-  <msg key="lt_You_dont_have_suffici">You don't have sufficient privileges to see this page.</msg>
+  <msg key="lt_You_dont_have_suffici">You don&#39;t have sufficient privileges to see this page.</msg>
   <msg key="Mark_invoice_as_paid">Mark invoice as paid</msg>
   <msg key="New_payment">New payment</msg>
   <msg key="Next_Page">Next Page</msg>
