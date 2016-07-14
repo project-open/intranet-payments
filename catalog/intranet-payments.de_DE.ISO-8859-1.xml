@@ -35,7 +35,7 @@
   <msg key="Payment_Type">Zahlungstyp</msg>
   <msg key="Payments">Zahlungen</msg>
   <msg key="Projects">Projekte</msg>
-  <msg key="Provider">Zulieferer</msg>
+  <msg key="Provider">Lieferanten</msg>
   <msg key="Received">Empfangen</msg>
   <msg key="Start_block_error">Start Block Fehler</msg>
   <msg key="Status">Status</msg>
