@@ -29,7 +29,7 @@ create table im_payments (
 				-- who gets paid?
 	provider_id		integer not null
 				constraint im_payments_provider
-				references im_companies,
+				references acs_objects,
 	received_date		timestamptz,
 	start_block		timestamptz 
 				constraint im_payments_start_block
