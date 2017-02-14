@@ -18,10 +18,10 @@
   <msg key="Invoice_Amount">Montant de la facture</msg>
   <msg key="lt_Confirm_payment_delet">Confirmer la suppression du réglement</msg>
   <msg key="lt_Do_you_really_want_to">Souhaitez-vous réellement supprimer le réglement %fee_type% de %fee_str% pour %project_name%?</msg>
-  <msg key="lt_Insufficient_Privileg">Droits d'accès insuffisants</msg>
+  <msg key="lt_Insufficient_Privileg">Droits d&#39;accès insuffisants</msg>
   <msg key="lt_No_costinvoice_item_s">Aucun élément de coût/facture précisé</msg>
   <msg key="lt_There_are_currently_n">Aucun réglement ne correspond aux critères de sélection</msg>
-  <msg key="lt_You_dont_have_suffici">Vos droits d'accès sont insuffisants pour visualiser cette page.</msg>
+  <msg key="lt_You_dont_have_suffici">Vos droits d&#39;accès sont insuffisants pour visualiser cette page.</msg>
   <msg key="New_payment">Nouveau réglement</msg>
   <msg key="Next_Page">Page suivante</msg>
   <msg key="Note">Note</msg>
