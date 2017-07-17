@@ -23,6 +23,7 @@
   <msg key="lt_The_intranet_start_bl">Het intranet start blokken zijn ofwel niet gedefinieerd ofwel we hebben geen startblok voor deze week of verder in de toekomst.</msg>
   <msg key="lt_There_are_currently_n">Er zijn geen betalingen die overeenkomen met de geselecteerde criteria</msg>
   <msg key="lt_You_dont_have_suffici">U heeft onvoldoende rechten om deze pagina te zien.</msg>
+  <msg key="Mark_invoice_as_paid">Markeer rekening als betaald</msg>
   <msg key="New_payment">Nieuwe betaling</msg>
   <msg key="Next_Page">Volgende pagina</msg>
   <msg key="Note">Notitie</msg>
