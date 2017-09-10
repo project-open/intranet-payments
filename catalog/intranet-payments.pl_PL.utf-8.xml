@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<message_catalog package_key="intranet-payments" locale="pl_PL" charset="utf-8">
+
+  <msg key="_Previous">Strona</msg>
+  <msg key="Add_New">Dodaj nową</msg>
+  <msg key="Add_payment">Dodaj płatność</msg>
+  <msg key="Amount">Kwota</msg>
+  <msg key="Amount_Paid">Kwota zapłacona</msg>
+  <msg key="Client">Klient</msg>
+  <msg key="Cost_Name">Nazwa kosztu</msg>
+  <msg key="Cost_Nr">Koszt nr</msg>
+  <msg key="Del">Usuń</msg>
+  <msg key="Delete_payment">Usuń płatność</msg>
+  <msg key="Edit_payment">Edytuj płatność</msg>
+  <msg key="Filter_Payments">Filtruj płatności</msg>
+  <msg key="Go">Idź</msg>
+  <msg key="Invoice">Faktura</msg>
+  <msg key="Invoice_Amount">Kwota faktury</msg>
+  <msg key="lt_Confirm_payment_delet">Potwierdź usunięcie płatności</msg>
+  <msg key="lt_Do_you_really_want_to">Czy na pewno chcesz usunąć płatność %fee_type% w kwocie %fee_str% dla %project_name%?</msg>
+  <msg key="lt_Insufficient_Privileg">Niewystarczające uprawnienia</msg>
+  <msg key="lt_No_costinvoice_item_s">Nie podano żadnych kosztów ani pozycji faktury</msg>
+  <msg key="lt_The_intranet_start_bl">Bloki startowe intranetu albo nie zostały zdefiniowane, albo nie mamy bloków startowych dla tego tygodnia lub następnych.</msg>
+  <msg key="lt_There_are_currently_n">Nie ma aktualnie płatności spełniających podane kryteria</msg>
+  <msg key="lt_You_dont_have_suffici">Nie masz wystarczających przywilejów, żeby zobaczyć tę stronę.</msg>
+  <msg key="Mark_invoice_as_paid">Zaznacz fakturę jako zapłaconą</msg>
+  <msg key="New_payment">Nowa płatność</msg>
+  <msg key="Next_Page">Następna strona</msg>
+  <msg key="Note">Notatka</msg>
+  <msg key="One_project">Jeden projekt</msg>
+  <msg key="Payment">Płatność</msg>
+  <msg key="Payment_Details">Szczegóły płatności</msg>
+  <msg key="Payment_hash_simbol">Płatność nr</msg>
+  <msg key="Payment_Status">Status płatności:</msg>
+  <msg key="Payment_Type">Typ płatności</msg>
+  <msg key="Payments">Płatności</msg>
+  <msg key="Projects">Projekty</msg>
+  <msg key="Provider">Dostawca</msg>
+  <msg key="Received">Otrzymana</msg>
+  <msg key="Start_block_error">Błąd bloku startowego</msg>
+  <msg key="Status">Status</msg>
+  <msg key="Update">Uaktualnij</msg>
+</message_catalog>
