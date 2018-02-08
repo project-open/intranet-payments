@@ -25,9 +25,10 @@ set current_user_id $user_id
 set page_title "[_ intranet-payments.Payments]"
 set context_bar [im_context_bar $page_title]
 set page_focus "im_header_form.keywords"
-set amp "&"
 
+set amp "&"
 set fin_document_type [db_string fin_doc_type "select im_category_from_id(cost_type_id) from im_costs where cost_id=:cost_id" -default "unknown"]
+set mark_document_as_paid_checked [parameter::get_from_package_key -package_key intranet-payments -parameter "DefaultMarkInvoiceAsPaidAfterAddingPaymentP" -default "1"]
 
 ns_log Notice "intranet-payments/new: return_url=$return_url"
 

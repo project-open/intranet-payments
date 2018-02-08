@@ -45,7 +45,7 @@
   <td valign="top"> </td>
   <td>
     <input type="submit" value="@button_name@" name="submit2">
-    <input type="checkbox" name="mark_document_as_paid_p" value="1" checked>
+    <input type="checkbox" name="mark_document_as_paid_p" value="@mark_document_as_paid_checked@" checked>
     <%= [lang::message::lookup "" intranet-payments.Mark_invoice_as_paid "Mark %fin_document_type% as paid."] %>
   </td>
 </tr>

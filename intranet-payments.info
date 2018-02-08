@@ -22,7 +22,7 @@
         <callbacks>
         </callbacks>
         <parameters>
-
+            <parameter scope="instance" datatype="number"  min_n_values="1"  max_n_values="1"  name="DefaultMarkInvoiceAsPaidAfterAddingPaymentP"  default="1" description="What is the default status for the checkbox available when adding a payment? '1' means ticked - mark the financial document as paid. '0' means not ticked - don't set the financial document to paid by default. The default is '1'."/>
         </parameters>
 
     </version>
