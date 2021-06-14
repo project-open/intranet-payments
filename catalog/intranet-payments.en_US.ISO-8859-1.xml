@@ -8,7 +8,7 @@
   <msg key="Amount_Paid">Amount Paid</msg>
   <msg key="Client">Client</msg>
   <msg key="Cost_Name">Cost Name</msg>
-  <msg key="Cost_Nr">Cost Nr</msg>
+  <msg key="Cost_Nr">Cost No</msg>
   <msg key="Del">Del</msg>
   <msg key="Delete_payment">Delete payment</msg>
   <msg key="Edit_payment">Edit payment</msg>
