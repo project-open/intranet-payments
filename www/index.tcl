@@ -144,7 +144,7 @@ if {$letter ne "" && $letter ne "ALL"  && $letter ne "SCROLL"} {
     lappend criteria "im_first_letter_default_to_a(acs_object__name(ci.customer_id)) = :letter"
 }
 
-set order_by_clause ""
+set order_by_clause "order by received_date DESC"
 switch $order_by {
     "Client" { set order_by_clause "order by company_name" }
     "Invoice" { set order_by_clause "order by ci.cost_name DESC" }
@@ -159,27 +159,6 @@ if { $where_clause ne "" } {
 
 # ToDo: Slow query with the number of costs
 
-set sql "
-select
-        p.*,
-        to_char(p.received_date,'YYYY-MM-DD') as received_date,
-	p.amount as payment_amount,
-	p.currency as payment_currency,
-	ci.customer_id,
-	ci.amount as cost_amount,
-	ci.currency as cost_currency,
-	ci.cost_name,
-	acs_object.name(ci.customer_id) as company_name,
-        im_category_from_id(p.payment_type_id) as payment_type,
-        im_category_from_id(p.payment_status_id) as payment_status
-from
-        im_payments p,
-	im_costs ci
-where
-	p.cost_id = ci.cost_id
-        $where_clause
-$order_by_clause
-"
 
 # ---------------------------------------------------------------
 # 5a. Limit the SQL query to MAX rows and provide << and >>
@@ -190,7 +169,6 @@ $order_by_clause
 # Set these limits to negative values to deactivate them
 set total_in_limited -1
 set how_many -1
-set selection "$sql"
 
 
 # ---------------------------------------------------------------
@@ -276,7 +254,7 @@ set bgcolor(0) " class=roweven "
 set bgcolor(1) " class=rowodd "
 set ctr 0
 set idx $start_idx
-db_foreach payments_info_query $selection {
+db_foreach payments_info_query "" {
     set url [im_maybe_prepend_http $url]
     if { $url eq "" } {
 	set url_string "&nbsp;"
